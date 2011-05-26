@@ -3,22 +3,21 @@
 
 	var cookieName = 'ICO_auth';
 
-	if (document.cookie.indexOf(cookieName) == -1) {
+	if ((postBack == null && document.cookie.indexOf(cookieName) == -1) || (postBack !=null)) {
 		function check(){
+			
 			var checkBox = document.getElementById('chk_ico_cookie');
 			if (checkBox.checked) {
-				
-				if (!postBack == null){
-						
+			
+				if (postBack != null){
+					
 					document.getElementById('ico_banner').style.display = 'none';
 					postBack();
 				}
 				else
 				{
-			
 					document.cookie =cookieName + '=1';
 					document.getElementById('ico_banner').style.display = 'none';
-					
 					
 				}
 					
