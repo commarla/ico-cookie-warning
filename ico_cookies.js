@@ -3,16 +3,17 @@
 
 	var cookieName = 'ICO_auth';
 
-	if ((postBack == null && document.cookie.indexOf(cookieName) == -1) || (postBack !=null)) {
+	
+	if ((!window.postBack && document.cookie.indexOf(cookieName) == -1) || (window.postBack)) {
 		function check(){
 			
 			var checkBox = document.getElementById('chk_ico_cookie');
 			if (checkBox.checked) {
 			
-				if (postBack != null){
+				if (window.postBack != null){
 					
 					document.getElementById('ico_banner').style.display = 'none';
-					postBack();
+					window.postBack();
 				}
 				else
 				{
@@ -24,16 +25,16 @@
 				}
 				else
 				{
-					alert(errorMessage || 'Please select that you accept Cookies to remove this message');
+					alert(window.errorMessage || 'Please select that you accept Cookies to remove this message');
 				}
 				
 		}
 
 	if (navigator.cookieEnabled) {
 	
-		var sPrivacyText = 'To find out more about cookies on this website and how to delete cookies, see our <a href="' + privacyLink +'">privacy notice</a>.'
+		var sPrivacyText = 'To find out more about cookies on this website and how to delete cookies, see our <a href="' + window.privacyLink +'">privacy notice</a>.'
 		
-		if (!privacyLink){
+		if (!window.privacyLink){
 			sPrivacyText = '';
 		}
 		
